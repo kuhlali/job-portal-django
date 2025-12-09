@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- HOME -->
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('{% static 'images/2/hero_1.jpg' %}');"
+  id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">Job Listings</h1>
+        <div class="custom-breadcrumbs">
+          <a href="{% url 'jobapp:home' %}">Home</a> <span class="mx-2 slash">/</span>
+          <span class="text-white"><strong>Job Listings</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="site-section pb-0">
+  <div class="container">
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="section-title mb-2">Discover Your Next Career Opportunity</h2>
+        <p class="lead">Browse through hundreds of job openings from top companies. Filter by location, job type, and keywords to find the perfect match for your skills and aspirations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="site-section pt-0">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <form action="" method="GET" class="form-inline float-right">
+          <label for="sort_by" class="mr-2">Sort By:</label>
+          <select name="sort_by" id="sort_by" class="selectpicker" data-style="btn-white" onchange="this.form.submit()">
+            <option value="-created_at" {% if current_sort_by == '-created_at' %}selected{% endif %}>Newest First</option>
+            <option value="created_at" {% if current_sort_by == 'created_at' %}selected{% endif %}>Oldest First</option>
+            <option value="-salary" {% if current_sort_by == '-salary' %}selected{% endif %}>Salary (High to Low)</option>
+            <option value="salary" {% if current_sort_by == 'salary' %}selected{% endif %}>Salary (Low to High)</option>
+            <option value="title" {% if current_sort_by == 'title' %}selected{% endif %}>Title (A-Z)</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ajax_listing_paginattion" class="site-section services-section bg-light block__62849" id="next-section">
+  <div class="container">
+
+    <div class="row">
+      {% for job in page_obj %}
+      <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
+        <a href="{% url 'jobapp:single-job' job.id %}" class="block__16443 min-h text-center d-block">
+          <span class="custom-icon mx-auto"><span class="icon-magnet d-block"></span></span>
+          <h3>{{ job.title }}</h3>
+          <ul class="job-listing-meta list-unstyled pl-3 mb-0">
+            <li class="menu-fix mb-2">
+              {% if job.job_type == '1' %}
+              <span class="badge badge-primary">
+                Full Time
+              </span>
+              {% elif job.job_type == '2'%}
+              <span class="badge badge-danger">
+                Part Time
+              </span>
+              {% else  %}
+              <span class="badge badge-info">
+                Internship
+              </span>
+              {% endif %}</li>
+            <li class="badge badge-secondary menu-fix mb-2"> {{ job.location }}</li>
+          </ul>
+          <p>{{ job.description | safe | truncatechars:150}}</p>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'jobapp/paginator.html' %}
+
+  </div>
+</section>
+
+{% endblock content %}

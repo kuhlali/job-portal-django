@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('{% static 'images/2/hero_1.jpg' %}');"
+    id="home-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="text-white font-weight-bold">All Applicants</h1>
+                <div class="custom-breadcrumbs">
+                    <a href="{% url 'jobapp:home' %}">Home</a> <span class="mx-2 slash">/</span>
+                    <a href="{% url 'jobapp:dashboard' %}">Dashboard</a> <span class="mx-2 slash">/</span>
+                    <span class="text-white"><strong>All Applicants</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-5">
+                <div class="card">
+                    <h5 class="card-header text-center mb-5">All Applicants</h5>
+                    <div class="table-responsive">
+                        <table class="table text-center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Job Title</th>
+                                    <th>Experience</th>
+                                    <th>Applied On</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for applicant in all_applicants %}
+                                <tr>
+                                    <td class="text-center"><a href="{% url 'jobapp:applicant-details' applicant.user.id %}">{{ applicant.user.get_full_name }}</a></td>
+                                    <td>{{ applicant.user.email }}</td>
+                                    <td>{{ applicant.user.phone_number|default:"N/A" }}</td>
+                                    <td>{{ applicant.user.preferred_job_title|default:"N/A" }}</td>
+                                    <td>{% if applicant.user.years_of_experience %}{{ applicant.user.years_of_experience }} yrs{% else %}N/A{% endif %}</td>
+                                    <td>{{ applicant.created_at|date:"d M, Y" }}</td>
+                                    <td>
+                                        <a class="btn btn-info btn-sm" href="{% url 'jobapp:applicant-details' applicant.user.id %}"
+                                                role="button">
+                                            View Profile
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

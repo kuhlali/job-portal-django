@@ -1,0 +1,249 @@
+/* Form Styling based on custom.css theme */
+
+/* ===== Form Container Styling ===== */
+form {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px;
+  padding: 30px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+form h2, form h3, form h4 {
+  color: #3C3633;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ===== Form Labels ===== */
+label {
+  color: #3C3633;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ===== Form Inputs ===== */
+.form-control,
+.form-select,
+textarea.form-control,
+select.form-control {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #3C3633;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+  border-color: #E57C23 !important;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(229, 124, 35, 0.1);
+  color: #3C3633;
+}
+
+.form-control::placeholder {
+  color: #999999;
+}
+
+/* ===== Form Groups ===== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== File Input Styling ===== */
+.form-control[type="file"] {
+  padding: 8px 12px;
+}
+
+.custom-file-label {
+  color: #3C3633;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.custom-file-label::after {
+  content: "Browse";
+  background-color: #E57C23;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  background-color: #E57C23 !important;
+  border-color: #E57C23 !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 12px 30px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #d46b1a !important;
+  border-color: #d46b1a !important;
+  box-shadow: 0 4px 12px rgba(229, 124, 35, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #c45c14 !important;
+  border-color: #c45c14 !important;
+  box-shadow: 0 0 0 3px rgba(229, 124, 35, 0.2);
+}
+
+.btn-primary:disabled {
+  background-color: #cccccc !important;
+  border-color: #cccccc !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===== Form Validation ===== */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.form-control.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: #28a745 !important;
+}
+
+.form-control.is-valid:focus {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.invalid-feedback,
+.valid-feedback {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+}
+
+.valid-feedback {
+  color: #28a745;
+}
+
+/* ===== Checkboxes and Radios ===== */
+.form-check-input {
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #E57C23 !important;
+  border-color: #E57C23 !important;
+}
+
+.form-check-input:focus {
+  border-color: #E57C23 !important;
+  box-shadow: 0 0 0 3px rgba(229, 124, 35, 0.1);
+}
+
+.form-check-label {
+  color: #3C3633;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/* ===== Form Alerts ===== */
+.alert {
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.alert-danger {
+  background-color: #fff5f5;
+  color: #dc3545;
+  border-left: 4px solid #dc3545;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  color: #28a745;
+  border-left: 4px solid #28a745;
+}
+
+.alert-info {
+  background-color: #eff6ff;
+  color: #0066cc;
+  border-left: 4px solid #0066cc;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  color: #ff9800;
+  border-left: 4px solid #ff9800;
+}
+
+/* ===== Help Text ===== */
+.form-text {
+  color: #666666;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ===== Form Row Styling ===== */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-row > div {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* ===== Links in Forms ===== */
+form a {
+  color: #E57C23;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+form a:hover {
+  color: #d46b1a;
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  form {
+    padding: 20px !important;
+  }
+
+  .form-row > div {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="section-hero overlay inner-page bg-image" style="background-image: url('{% static 'images/2/hero_1.jpg' %}');" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">Contact Us</h1>
+        <div class="custom-breadcrumbs">
+          <a href="{% url 'jobapp:home' %}">Home</a> <span class="mx-2 slash">/</span>
+          <span class="text-white"><strong>Contact Us</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="site-section" id="next-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <h2 class="mb-4">Get In Touch</h2>
+        {% include 'messages.html' %}
+        <form action="{% url 'jobapp:contact' %}" method="post" class="p-4 border rounded border-light-custom">
+          {% csrf_token %}
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="text-dark-charcoal" for="fname">First Name</label>
+              {{ form.first_name }}
+            </div>
+            <div class="col-md-6">
+              <label class="text-dark-charcoal" for="lname">Last Name</label>
+              {{ form.last_name }}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-dark-charcoal" for="email">Email</label>
+              {{ form.email }}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-dark-charcoal" for="subject">Subject</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-dark-charcoal" for="message">Message</label>
+              {{ form.message }}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Send Message" class="btn btn-primary btn-md">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-5 ml-auto">
+        <div class="p-4 border rounded mb-3 border-light-custom">
+          <span class="d-block text-primary h6 text-uppercase">Location</span>
+          <p class="mb-0 text-dark-charcoal">KaziNyumbani Headquarters, Section 58, Nakuru, Kenya</p>
+        </div>
+        <div class="p-4 border rounded mb-3 border-light-custom">
+          <span class="d-block text-primary h6 text-uppercase">Phone</span>
+          <p class="mb-0 text-dark-charcoal">+254 712 345 678</p>
+        </div>
+        <div class="p-4 border rounded mb-3 border-light-custom">
+          <span class="d-block text-primary h6 text-uppercase">Email</span>
+          <p class="mb-0 text-dark-charcoal">info@kazinyumbani.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

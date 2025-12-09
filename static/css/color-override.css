@@ -1,0 +1,82 @@
+/* Simple color override: Replace green #89ba16 with primary blue #2563EB */
+
+/* Primary green to blue */
+.btn-primary,
+.btn-success {
+  background-color: #2563EB !important;
+  border-color: #2563EB !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* Badge colors */
+.badge-primary,
+.badge-success {
+  background-color: #2563EB !important;
+  color: #ffffff !important;
+}
+
+/* Text colors */
+.text-primary,
+.text-success {
+  color: #2563EB !important;
+}
+
+/* Background colors */
+.bg-primary,
+.bg-success {
+  background-color: #2563EB !important;
+}
+
+/* Border colors */
+.border-primary,
+.border-success {
+  border-color: #2563EB !important;
+}
+
+/* Active states */
+.list-group-item.active {
+  background-color: #2563EB !important;
+  border-color: #2563EB !important;
+}
+
+.page-item.active .page-link {
+  background-color: #2563EB !important;
+  border-color: #2563EB !important;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #2563EB !important;
+}
+
+/* Custom icons */
+.custom-icon,
+.block__62849 .block__16443 .custom-icon {
+  background-color: #2563EB !important;
+  border-color: #2563EB !important;
+}
+
+/* Links */
+a {
+  color: #2563EB !important;
+}
+
+a:hover {
+  color: #1d4ed8 !important;
+}
+
+/* Form inputs */
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: #2563EB !important;
+}
+
+/* Progress bar */
+.progress-bar {
+  background-color: #2563EB !important;
+}

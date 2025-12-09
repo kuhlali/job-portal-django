@@ -1,0 +1,21 @@
+/* --- Custom African-Inspired Color Palette --- */
+
+:root {
+  --brand-primary: #E57C23; /* Vibrant, sun-kissed orange */
+  --brand-dark-text: #3C3633; /* Soft, dark charcoal for text */
+  --brand-border-light: #e0e0e0; /* Softer border color */
+}
+
+/* Override Bootstrap Primary Color */
+.btn-primary {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+/* Custom Text and Border Classes */
+.text-dark-charcoal { color: var(--brand-dark-text); }
+.border-light-custom { border-color: var(--brand-border-light) !important; }

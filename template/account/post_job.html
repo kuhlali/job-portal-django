@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- HOME -->
+<section class="section-hero overlay inner-page bg-image"
+  style="background-image: url('{% static 'images/2/hero_1.jpg' %}');" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="text-white font-weight-bold">Post a Domestic Job</h1>
+        <div class="custom-breadcrumbs">
+          <a href="{% url 'jobapp:home' %}">Home</a> <span class="mx-2 slash">/</span>
+          <span class="text-white"><strong>Post a Job</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="site-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mb-5">
+        {% include 'messages.html' %}
+        <form method="POST" class="p-4 border rounded">
+          {% csrf_token %}
+          <h2 class="mb-4">Find Help for Your Home or Business</h2>
+          
+          <p class="mb-4">Fill in the details of the job you are offering. Your post will be visible to registered workers.</p>
+
+          {{ form.as_p }}
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Post Job" class="btn px-4 btn-primary text-white">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

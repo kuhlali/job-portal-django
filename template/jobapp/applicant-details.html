@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+    <!-- HOME -->
+    <section class="section-hero overlay inner-page bg-image" style="background-image: url('{% static 'images/2/hero_1.jpg' %}');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-white font-weight-bold">{{ applicant.get_full_name }}</h1>
+            <div class="custom-breadcrumbs">
+              <a href="{% url 'jobapp:home' %}">Home</a> <span class="mx-2 slash">/</span>
+              <span class="text-white"><strong>Applicant Details</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section block__18514" id="next-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- Basic Info Card -->
+            <div class="card p-4 mb-4">
+              <h2 class="mb-4">Profile: {{ applicant.get_full_name }}</h2>
+              
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p><strong>Full Name:</strong> {{ applicant.get_full_name }}</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <p><strong>Email:</strong> {{ applicant.email }}</p>
+                </div>
+              </div>
+
+              {% if applicant.phone_number %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p><strong>Phone:</strong> {{ applicant.phone_number }}</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <p><strong>Gender:</strong> {{ applicant.get_gender_display }}</p>
+                </div>
+              </div>
+              {% else %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p><strong>Gender:</strong> {{ applicant.get_gender_display }}</p>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+
+            <!-- Professional Info Card -->
+            <div class="card p-4 mb-4">
+              <h4 class="mb-3">Professional Information</h4>
+              
+              {% if applicant.preferred_job_title %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p><strong>Preferred Job Title:</strong> {{ applicant.preferred_job_title }}</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <p><strong>Location:</strong> {{ applicant.location }}</p>
+                </div>
+              </div>
+              {% endif %}
+
+              {% if applicant.years_of_experience %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <p><strong>Years of Experience:</strong> {{ applicant.years_of_experience }} years</p>
+                </div>
+              </div>
+              {% endif %}
+
+              {% if applicant.skills %}
+              <div class="mb-3">
+                <p><strong>Skills:</strong></p>
+                <p>{{ applicant.skills }}</p>
+              </div>
+              {% endif %}
+
+              {% if applicant.bio %}
+              <div class="mb-3">
+                <p><strong>Professional Bio:</strong></p>
+                <p>{{ applicant.bio }}</p>
+              </div>
+              {% endif %}
+            </div>
+
+            <!-- CV Download Card -->
+            {% if applicant.cv %}
+            <div class="card p-4 mb-4">
+              <h4 class="mb-3">Resume/CV</h4>
+              <p><strong>CV File:</strong></p>
+              <a href="{{ applicant.cv.url }}" class="btn btn-primary btn-md" download>
+                <span class="icon-download mr-2"></span>Download CV
+              </a>
+            </div>
+            {% endif %}
+
+            <!-- Contact Action -->
+            <div class="card p-4">
+              <p><a href="mailto:{{ applicant.email }}" class="btn btn-primary btn-md">
+                <span class="icon-envelope mr-2"></span>Contact Applicant
+              </a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+{% endblock %}
