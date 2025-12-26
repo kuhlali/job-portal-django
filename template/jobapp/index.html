@@ -86,7 +86,7 @@
       <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
         <a href="{% url 'jobapp:single-job' job.id %}"></a>
         <div class="job-listing-logo">
-          <img src="{% static 'images/i.jpg' %}" alt="Company Logo"
+          <img src="{% static 'images/i.jpg' %}" alt="{{ job.company_name }} Logo"
             class="img-fluid">
         </div>
 
@@ -226,7 +226,7 @@ $("#ajax_listing_paginattion" ).delegate( "a#ajax_paginator", "click", function(
                             <a href="/job/${job.id}/"></a>
                               <div class="job-listing-logo">
                                 <img src="{% static 'images/i.jpg' %}" alt="Company Logo"
-                                  class="img-fluid">
+                                  class="img-fluid" alt="image">
                               </div>
 
                               <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
